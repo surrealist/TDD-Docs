@@ -4,7 +4,7 @@ namespace Docs.Models
 {
   public class Order
   {
-
+    [StringLength(20)]
     public string OrderId { get; set; } = "PO-0000";
 
     public DateTimeOffset Date { get; set; }

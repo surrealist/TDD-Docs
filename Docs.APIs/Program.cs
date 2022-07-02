@@ -1,3 +1,4 @@
+using Docs.Services;
 using Docs.Services.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,9 @@ builder.Services.AddDbContext<AppDb>(options =>
 {
   options.UseSqlServer(builder.Configuration.GetConnectionString(nameof(AppDb)));
 });
+
+builder.Services.AddScoped<IOrderService, OrderService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

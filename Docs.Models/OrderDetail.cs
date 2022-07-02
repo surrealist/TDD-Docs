@@ -10,14 +10,12 @@ namespace Docs.Models
 {
   public class OrderDetail
   {
+    [StringLength(20)]
+    public string OrderId { get; set; }
 
-    [Key]
-    [Column(Order = 0)]
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public int LineId { get; set; } = 1;
-    [Key]
-    [Column(Order = 1)]
-    public int OrderId { get; set; }
+
 
     public string Description { get; set; } = "";
 
@@ -37,6 +35,7 @@ namespace Docs.Models
       => TotalAmount - NetAmount;
 
     [Required]
+    [ForeignKey(nameof(OrderId))]
     public virtual Order Order { get; set; }
   }
 }
